@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"github.com/sirupsen/logrus"
 	"github.com/urfave/negroni"
-	"github.com/x1unix/demo-go-plugins/server/config"
+	"github.com/go-gilbert/project-example/server/config"
 	"net/http"
 )
 

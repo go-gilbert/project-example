@@ -1,4 +1,4 @@
-module github.com/x1unix/demo-go-plugins
+module github.com/go-gilbert/project-example
 
 go 1.12
 

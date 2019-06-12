@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"github.com/x1unix/demo-go-plugins/server/feed/sources"
+	"github.com/go-gilbert/project-example/server/feed/sources"
 	"io/ioutil"
 )
 

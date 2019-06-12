@@ -19,7 +19,7 @@ Feed sources are provided as separate libraries.
 
 - Clone this project
 ```bash
-git clone https://github.com/x1unix/demo-go-plugins.git
+git clone https://github.com/go-gilbert/project-example.git
 ```
 - Build project
 ```bash

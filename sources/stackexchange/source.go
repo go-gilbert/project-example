@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/x1unix/demo-go-plugins/server/feed"
+	"github.com/go-gilbert/project-example/server/feed"
 )
 
 type DataSource struct {

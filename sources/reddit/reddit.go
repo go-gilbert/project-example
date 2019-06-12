@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/x1unix/demo-go-plugins/server/feed"
+	"github.com/go-gilbert/project-example/server/feed"
 )
 
 type config struct {

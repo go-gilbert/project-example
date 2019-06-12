@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/jzelinskie/geddit"
-	"github.com/x1unix/demo-go-plugins/server/feed"
+	"github.com/go-gilbert/project-example/server/feed"
 )
 
 const name = "reddit"

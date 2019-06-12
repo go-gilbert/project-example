@@ -7,9 +7,9 @@ import (
 	"os/signal"
 
 	"github.com/sirupsen/logrus"
-	"github.com/x1unix/demo-go-plugins/server/config"
-	"github.com/x1unix/demo-go-plugins/server/feed/sources"
-	"github.com/x1unix/demo-go-plugins/server/web"
+	"github.com/go-gilbert/project-example/server/config"
+	"github.com/go-gilbert/project-example/server/feed/sources"
+	"github.com/go-gilbert/project-example/server/web"
 )
 
 const defaultConfigFile = "config.json"

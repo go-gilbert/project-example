@@ -4,8 +4,8 @@ import (
 	"github.com/golang/mock/gomock"
 	"github.com/jzelinskie/geddit"
 	"github.com/stretchr/testify/assert"
-	"github.com/x1unix/demo-go-plugins/server/feed"
-	"github.com/x1unix/demo-go-plugins/sources/reddit/mocks"
+	"github.com/go-gilbert/project-example/server/feed"
+	"github.com/go-gilbert/project-example/sources/reddit/mocks"
 	"testing"
 )
 

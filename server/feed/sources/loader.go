@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/sirupsen/logrus"
-	"github.com/x1unix/demo-go-plugins/server/feed"
+	"github.com/go-gilbert/project-example/server/feed"
 	"plugin"
 )
 
