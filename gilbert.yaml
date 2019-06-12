@@ -1,11 +1,31 @@
+# Manifest version. Current is 1.0
 version: 1.0
-  
+
+# You can store some common tasks or mixins
+# in separate file and import it.
+#
+# Imported file should have the same syntax
+# as 'gilbert.yaml' file 
 imports:
   - ./docs/common.yaml
 
+# Gilbert can be extended by third-party plugins.
+# Plugins allows to define custom action handlers.
+#
+# In this case a local package was imported as plugin.
 plugins:
   - go://./docs/actions
 
+# Manifest file can contain Go template expressions
+# that allow to define complicated logic in `gilbert.yaml` file
+#
+# In this case, there is a slice of libraries for compilation
+# and list of packages for coverage check
+{{{ $libs := shell "ls -1 ./sources | xargs -0 -n 1 basename" | split "\n" }}}
+{{{ $packages := slice "./server" "./sources" }}}
+
+# Global manifest variables
+# You can override variables with '--var' parameter
 vars:
   app_version: '1.0.0'
   build_dir: '{{PROJECT}}/build'
@@ -14,6 +34,8 @@ vars:
   watcher_addr: 'localhost:4800'
 
 mixins:
+  # Mixin 'rebuild' used by 'watch' task and contains steps that
+  # should be done on filesystem change.
   rebuild:
     - task: build
     - action: 'live-reload:trigger'
@@ -35,23 +57,30 @@ tasks:
           'main.version': '{{app_version}}'
           'main.commit': '{% git log --format=%H -n 1 %}'
 
+  # Contents of this task are generated from template
   build-libs:
+    {{{ range $libs }}}
     - mixin: build-lib
       vars:
-        name: 'reddit'
-    - mixin: build-lib
-      vars:
-        name: 'stackexchange'
+        name: {{{.}}}
+    {{{ end }}}
 
+  # Check project coverage and throw an error
+  # if coverage level is below specified threshold
   cover:
     - action: cover
       params:
         threshold: 40
         reportCoverage: true
-        packages:
-          - ./sources/...
+        packages: 
+          # Insert list of packages as YAML array parameter
+          # for the action
+          {{{ $packages | yaml }}}
+        
+  # Start our custom live reload server and rebuild project
+  # on project source code change.
   watch:
-    - action: live-reload:start-server
+    - action: live-reload:start-server # this action handled is defined in plugin
       async: true
       params:
         address: '{{watcher_addr}}'
