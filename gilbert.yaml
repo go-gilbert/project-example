@@ -22,7 +22,7 @@ plugins:
 # In this case, there is a slice of libraries for compilation
 # and list of packages for coverage check
 {{{ $libs := shell "ls -1 ./sources | xargs -0 -n 1 basename" | split "\n" }}}
-{{{ $packages := slice "./server" "./sources" }}}
+{{{ $packages := slice "./server" "./sources/..." }}}
 
 # Global manifest variables
 # You can override variables with '--var' parameter
