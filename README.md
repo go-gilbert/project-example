@@ -12,7 +12,7 @@ Feed sources are provided as separate libraries.
 ### Prerequisites
 
 - Go (1.12+)
-- UNIX system (preferable Linux)
+- UNIX system (Linux is preferable)
 - [Gilbert](https://github.com/x1unix/gilbert) task runner
 
 ### Compilation
